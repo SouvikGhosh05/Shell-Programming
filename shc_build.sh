@@ -1,6 +1,5 @@
 #! /bin/bash
 
-
 if which shc > /dev/null; then
     echo "shc already installed"
 else
@@ -24,6 +23,8 @@ build_binary() {
 if [ ! -d "bin" ]; then     # if bin directory does not exist
     mkdir bin
     build_binary
+    echo "All binaries created"
 else 
     build_binary
+    echo "All binaries created"
 fi
