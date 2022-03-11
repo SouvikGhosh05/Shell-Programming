@@ -18,7 +18,7 @@ build_binary() {
     done
 }
 
-if [ ! -d "bin" ]; then     # if bin directory does not exist
+if [ ! -d "bin" ]; then     # if 'bin' directory does not exist
     mkdir bin
     build_binary
     echo "All binaries created"

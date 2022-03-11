@@ -1,6 +1,6 @@
 #! /bin/bash
 
-HELP_Command()      # Display Help
+HELP_Command()      # Displays Help
 {
     echo "Usage: Internsctl Command Help"
     echo
@@ -86,14 +86,14 @@ else
                 exit;;
 
                 *)
-                echo "Invalid option: ${args[1]}. Try 'internsctl memory --help[-h]' for more information.">&2
+                echo "Invalid option: '${args[1]}'. Try 'internsctl memory --help[-h]' for more information.">&2
                 exit 1;;
             esac;;
 
         user)
             case ${args[1]} in
                 create)
-                if [[ -n "${args[2]}" ]]; then       # Check if the string is not empty
+                if [[ -n "${args[2]}" ]]; then      # Checks if the string is not empty
                     sudo adduser "${args[2]}";
                     exit;
                 else
@@ -106,7 +106,7 @@ else
                     grep '^sudo:.*$' /etc/group | cut -d: -f4 | sort -u
                     exit;;
                     "")
-                    awk -F: '{ print $1}' /etc/passwd
+                    awk -F: '{ print $1}' /etc/passwd | sort -u | less
                     exit;;
                     *)
                     echo "Invalid option: '${args[2]}'. Try 'internsctl user --help[-h]' for more information.">&2
@@ -129,7 +129,7 @@ else
                         if [[ -f "${args[2]}" ]] ;then
                             files=("${args[@]:2}")
                             for item in "${files[@]}"; do
-                            if [[ -f $item ]]; then      # Check if the file exists
+                            if [[ -f $item ]]; then         # Checks if the file exists
                                 stat "${item}";
                             else
                                 echo "Invalid file: ${item}";
