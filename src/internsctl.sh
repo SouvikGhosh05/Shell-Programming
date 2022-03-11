@@ -95,6 +95,7 @@ else
                 create)
                 if [[ -n "${args[2]}" ]]; then      # Checks if the string is not empty
                     sudo adduser "${args[2]}";
+                    echo "User ${args[2]} created successfully."
                     exit;
                 else
                     echo "No user specified."
