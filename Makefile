@@ -4,3 +4,4 @@ build:
 
 clean:
 	rm -rf ./bin
+	rm -rf ./src/*.x.c
