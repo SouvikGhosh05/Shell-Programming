@@ -1,5 +1,7 @@
 #! /bin/bash
 
+set -e
+
 HELP_Command()      # Displays Help
 {
     echo "Usage: Internsctl Command Help"
@@ -157,7 +159,6 @@ else
                                     echo -e "\e[3m-o, --owner\e[0m: Displays the owner of the file."
                                     echo -e "\e[3m-p, --permissions\e[0m: Displays the permissions of the file."
                                     echo -e "\e[3m-m, --last-modified\e[0m: Displays the last modified time of the file."
-
                                     exit;;
                                 *)
                                 echo "Invalid option: '${args[2]}'. Try 'internsctl file getinfo --help[-h]' for more information.">&2
