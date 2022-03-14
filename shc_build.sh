@@ -13,8 +13,8 @@ DIR="src/*.sh"
 build_binary() {
     for filename in $DIR; do
         
-        name=${filename##*/} 
-        shc -f "src/$name" -o "bin/${name%%.*}"
+        name=${filename##*/}                        # Remove pattern from left, e.g. "src/foo.sh" -> "foo.sh" where, pattern is "/
+        shc -f "src/$name" -o "bin/${name%%.*}"     # Remove pattern from right e.g. "foo.sh" -> "foo" where, pattern is "."
     done
 }
 
