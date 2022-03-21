@@ -1,6 +1,6 @@
 #! /bin/bash
 
-set -e
+set -e              # exit on error
 
 HELP_Command()      # Displays Help
 {
@@ -19,10 +19,10 @@ HELP_Command()      # Displays Help
 
 args=("$@")
 check_stat(){
-    if [[ -f "${args[3]}" ]] ;then
+    if test -f "${args[3]}"; then
     files=("${args[@]:3}")
     for item in "${files[@]}"; do
-        if [[ -f $item ]]; then 
+        if test -f "$item"; then 
             case ${1} in
                 "s")
                     size=$(stat -c%"${1}" "${item}")
@@ -51,7 +51,7 @@ check_stat(){
     fi
 }
 
-if [ $# -eq 0 ]; then
+if test $# -eq 0; then
     HELP_Command
     exit 0;
 else
@@ -95,7 +95,7 @@ else
         user)
             case ${args[1]} in
                 create)
-                if [[ -n "${args[2]}" ]]; then      # Checks if the string is not empty
+                if test -n "${args[2]}"; then      # Checks if the string is not empty
                     sudo adduser "${args[2]}";
                     echo "User ${args[2]} created successfully."
                     exit;
@@ -129,10 +129,10 @@ else
         file)
             case ${args[1]} in
                 getinfo)
-                        if [[ -f "${args[2]}" ]] ;then
+                        if test -f "${args[2]}"; then
                             files=("${args[@]:2}")
                             for item in "${files[@]}"; do
-                            if [[ -f $item ]]; then         # Checks if the file exists
+                            if test -f "$item"; then         # Checks if the file exists
                                 stat "${item}";
                             else
                                 echo "Invalid file: ${item}";
