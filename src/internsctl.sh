@@ -18,6 +18,7 @@ HELP_Command()      # Displays Help
 }
 
 args=("$@")
+
 check_stat(){
     if test -f "${args[3]}"; then
     files=("${args[@]:3}")
