@@ -1,6 +1,6 @@
 #! /bin/bash
 
-if ! type -P shc > /dev/null; then
+if ! type -P shc > /dev/null; then      # 'type -P' can be used instead of 'which'
     echo "shc not installed, installing now"
     sudo apt install software-properties-common -y
     sudo add-apt-repository ppa:neurobin/ppa -y
