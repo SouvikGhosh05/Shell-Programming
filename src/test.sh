@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -echo                               #exit on error
+set -e                                  #exit on error
 set -u                                  #raise exception on exporting to undefined path
 set -x                                  #prints the lines of commands on terminal while it's been executed (mainly used for debugging)
 
